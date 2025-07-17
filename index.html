@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Resume</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="info-box">
+      <img src="img/Darwin.png" alt="Profile Picture" class="profile-picture">
+      <p class="bio">A 6'0 Guy that has interest in gaming and always sleeps a lot, also working at McDonald's
+        Concepcion at Graveyard Shift.</p>
+    </div>
+
+
+    <div class="educ">
+      <h2>Education Attainment</h2>
+      <ul class="educ-list">
+        <li>
+          <strong>Elementary:</strong>
+          <ul>
+            <li>St. Paul Montessori (2009–2015)</li>
+          </ul>
+        </li>
+        <li>
+          <strong>High School and Senior High:</strong>
+          <ul>
+            <li>Benigno National High School (2015–2016)</li>
+            <li>Dolores National High School (2016–2020)</li>
+            <li>Precious High Academy (2020–2022)</li>
+          </ul>
+        </li>
+        <li>
+          <strong>College:</strong>
+          <ul>
+            <li>Dominican College Of Tarlac (2022–Present)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="skill">
+      <h2>Skills</h2>
+      <ul class="Skill-list">
+        <li>Fast-Learner</li>
+        <li>Cooperative</li>
+        <li>Hardworker</li>
+        <li>Adaptability</li>
+      </ul>
+    </div>
+
+    <div class="experience">
+      <h2>Experience</h2>
+      <ul class="experience-list">
+        <li>McDonald's Concepcion - Service Crew (2023–Present)</li>
+      </ul>
+    </div>
+
+    <div class="contact-section">
+      <h2>Contact Me</h2>
+      <form id="contact-form">
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" placeholder="Your email" required /><br /><br />
+
+        <label for="message">Message:</label><br />
+        <textarea id="message" name="message" rows="5" placeholder="Write your message..."
+          required></textarea><br /><br />
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <div class="comment-section">
+      <h2>Leave a Comment</h2>
+      <form id="comment-form">
+        <label for="username">Name:</label><br />
+        <input type="text" id="username" name="username" placeholder="Your name" required /><br /><br />
+
+        <label for="comment">Comment:</label><br />
+        <textarea id="comment" name="comment" rows="4" placeholder="Write your comment..."
+          required></textarea><br /><br />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="comment-box">
+        <h3>Comments:</h3>
+        <ul id="comment-box" class="comment-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Message sent!");
+      this.reset();
+    });
+
+    document.getElementById("comment-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("username").value.trim();
+      const comment = document.getElementById("comment").value.trim();
+
+      if (name && comment) {
+        const commentList = document.getElementById("comment-box");
+        const newItem = document.createElement("li");
+        newItem.innerHTML = `<strong>${name}:</strong> ${comment}`;
+        commentList.appendChild(newItem);
+        this.reset();
+      } else {
+        alert("Please enter both name and comment.");
+      }
+    });
+  </script>
+</body>
+
+</html>
